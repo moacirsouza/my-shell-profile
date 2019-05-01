@@ -1,6 +1,10 @@
 #!/bin/bash
 
-arquivoDoPerfil=lala
+arquivoDoPerfil=.bashrc
+
+### TODO: Adicionar funções de verificação da existência prévia deste conteúdo
+### no perfil do usuário, além das opções de mudança de idiomas para os 
+### comentários e cabeçalhos das seções.
 
 (
 cat <<EOF
