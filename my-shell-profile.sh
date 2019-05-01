@@ -1,5 +1,10 @@
 #!/bin/bash
 
+arquivoDoPerfil=lala
+
+(
+cat <<EOF
+
 # -----------------------[ Personalização do Prompt ]---------------------------
 
 ### Define o nome do usuario
@@ -40,8 +45,10 @@ set -o vi
 
 ### Garante que o histórico de uma sessão é imediatamente adicionado ao
 ### ~/.bash_history assim que essa sessão é finalizada
-shopt -s histappend
+#shopt -s histappend
 
 # ------------------------[ Exportação de variáveis ]---------------------------
 
 export EDITOR PS1 EXINIT HISTSIZE
+EOF
+) >> $arquivoDoPerfil 
