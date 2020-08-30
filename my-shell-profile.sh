@@ -1,34 +1,41 @@
 #!/bin/bash
 
-arquivoDoPerfil=.bashrc
+arquivoDoPerfil=${HOME}/.bashrc
+comeco='Começo da Personalização'
+fim='Fim da Personalização'
 
-### TODO: Adicionar funções de verificação da existência prévia deste conteúdo
-### no perfil do usuário, além das opções de mudança de idiomas para os 
-### comentários e cabeçalhos das seções.
+### TODO: Adicionar opções de mudança de idiomas para os comentários e
+### cabeçalhos das seções.
+
+### Remove versões anteriores das personalizações criadas pelo programa
+sed -i "/$comeco/,/$fim/d" $arquivoDoPerfil
 
 (
 cat <<EOF
+# -----------------------[ $comeco ]---------------------------
 
-# -----------------------[ Personalização do Prompt ]---------------------------
+### TODO: Avaliar se vale à pena alterar o PS1 com o formato definido pelas
+### variáveis desta Seção. Levar em consideração outros ambientes que não usam
+### o $HOME/.bashrc como configurador do shell interativo
 
 ### Define o nome do usuario
-usuario=$(whoami)
+#usuario=\$(whoami)
 
 ### Define o nome da maquina
-nomeDoHost=$(uname -n)
+#nomeDoHost=\$(uname -n)
 
 ### Personaliza o prompt de comandos
 
 ### Se o perfil for do usuario root, coloca o simbolo de cerquilha (#) ao
 ### final do PS1, se nao, coloca o simbolo do cifrao ($)
-simboloDoPrompt='$'
+#simboloDoPrompt='$'
 
-if [ $(id -u) -eq 0 ]
-then
-    simboloDoPrompt='#'
-fi
+#if [ $(id -u) -eq 0 ]
+#then
+#    simboloDoPrompt='#'
+#fi
 
-PS1='$usuario@$nomeDoHost $PWD $simboloDoPrompt '
+# PS1='\$usuario@\$nomeDoHost:\$PWD\$simboloDoPrompt '
 
 # -------------------------[ Variáveis de ambiente ]----------------------------
 
@@ -53,6 +60,9 @@ set -o vi
 
 # ------------------------[ Exportação de variáveis ]---------------------------
 
-export EDITOR PS1 EXINIT HISTSIZE
+# export EDITOR PS1 EXINIT HISTSIZE
+export EDITOR EXINIT HISTSIZE
+
+# -------------------------[ $fim ]----------------------------
 EOF
 ) >> $arquivoDoPerfil 
