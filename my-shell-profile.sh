@@ -16,37 +16,37 @@ cat <<EOF
 
 ### TODO: Avaliar se vale à pena alterar o PS1 com o formato definido pelas
 ### variáveis desta Seção. Levar em consideração outros ambientes que não usam
-### o $HOME/.bashrc como configurador do shell interativo
+### o \$HOME/.bashrc como configurador do shell interativo
 
-### Define o nome do usuario
+### Define o nome do usuário
 #usuario=\$(whoami)
 
-### Define o nome da maquina
-#nomeDoHost=\$(uname -n)
+### Define o nome da máquina
+nomeDoHost=\$(uname -n)
 
 ### Personaliza o prompt de comandos
 
-### Se o perfil for do usuario root, coloca o simbolo de cerquilha (#) ao
-### final do PS1, se nao, coloca o simbolo do cifrao ($)
-#simboloDoPrompt='$'
+### Se o perfil for do usuário root, coloca o simbolo de cerquilha (#) ao
+### final do PS1, se não, coloca o símbolo do cifrão ($)
+simboloDoPrompt='$'
 
-#if [ $(id -u) -eq 0 ]
-#then
-#    simboloDoPrompt='#'
-#fi
+if [ \$(id -u) -eq 0 ]
+then
+    simboloDoPrompt='#'
+fi
 
-# PS1='\$usuario@\$nomeDoHost:\$PWD\$simboloDoPrompt '
+PS1='\$usuario@\$nomeDoHost:\$PWD\$simboloDoPrompt '
 
 # -------------------------[ Variáveis de ambiente ]----------------------------
 
 ### Configura o EXINIT para personalizar o comportamento do vi
-EXINIT=":set number tabstop=4 hardtabs=4 showmode expandtab \
+EXINIT=":set number tabstop=4 hardtabs=4 showmode expandtab \\
 nohlsearch ai cursorline colorcolumn=81"
 
 ### Define o tamanho máximo do history
 HISTSIZE=100000
 
-### Define o editor de textos padrao
+### Define o editor de textos padrão
 EDITOR=/usr/bin/vi
 
 # ----------------[ Personalizações do ambiente de edição ]---------------------
@@ -56,12 +56,11 @@ set -o vi
 
 ### Garante que o histórico de uma sessão é imediatamente adicionado ao
 ### ~/.bash_history assim que essa sessão é finalizada
-#shopt -s histappend
+shopt -s histappend
 
 # ------------------------[ Exportação de variáveis ]---------------------------
 
-# export EDITOR PS1 EXINIT HISTSIZE
-export EDITOR EXINIT HISTSIZE
+export EDITOR PS1 EXINIT HISTSIZE
 
 # -------------------------[ $fim ]----------------------------
 EOF
