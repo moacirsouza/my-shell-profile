@@ -12,14 +12,14 @@ sed -i "/$comeco/,/$fim/d" $arquivoDoPerfil
 
 (
 cat <<EOF
-# -----------------------[ $comeco ]---------------------------
 
+# -----------------------[ $comeco ]---------------------------
 ### TODO: Avaliar se vale à pena alterar o PS1 com o formato definido pelas
 ### variáveis desta Seção. Levar em consideração outros ambientes que não usam
 ### o \$HOME/.bashrc como configurador do shell interativo
 
 ### Define o nome do usuário
-#usuario=\$(whoami)
+usuario=\$(whoami)
 
 ### Define o nome da máquina
 nomeDoHost=\$(uname -n)
