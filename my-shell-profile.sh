@@ -41,7 +41,7 @@ PS1='\$usuario@\$nomeDoHost:\$PWD\$simboloDoPrompt '
 
 ### Configura o EXINIT para personalizar o comportamento do vi
 EXINIT=":set number tabstop=4 hardtabs=4 showmode expandtab \\
-nohlsearch ai cursorline colorcolumn=81"
+nohlsearch ai cursorline nowrap colorcolumn=81"
 
 ### Define o tamanho máximo do history
 HISTSIZE=100000
