@@ -35,7 +35,7 @@ then
     simboloDoPrompt='#'
 fi
 
-PS1='\$usuario@\$nomeDoHost:\$PWD\$simboloDoPrompt '
+PS1='\$usuario@\$nomeDoHost -> \$PWD \$simboloDoPrompt '
 
 # -------------------------[ Variáveis de ambiente ]----------------------------
 
@@ -56,7 +56,7 @@ set -o vi
 
 ### Garante que o histórico de uma sessão é imediatamente adicionado ao
 ### ~/.bash_history assim que essa sessão é finalizada
-shopt -s histappend
+#shopt -s histappend
 
 # ------------------------[ Exportação de variáveis ]---------------------------
 
